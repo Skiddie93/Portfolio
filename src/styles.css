@@ -19,10 +19,22 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transform: translateX(-100%);
+  transition: transform ease 0.5s;
+  transform: translateX(0%);
 }
-.mainPanel:active {
-  transform: translateX(0);
+
+.mainPanel-active {
+  position: relative;
+  width: 25vw;
+  height: 100vh;
+  background: green;
+  color: white;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform ease 0.5s;
+  transform: translateX(-100%);
 }
 
 .innerPanel {

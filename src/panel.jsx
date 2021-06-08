@@ -3,12 +3,14 @@ import './styles.css'
 
 
 function Panel(){
-  const [panelPos, setPanel] = useState(true)
+const [statePanel, setPanel ] = useState(true)
   const panelToggle = () => {
-    setPanel(!panelPos);  };
+   setPanel(!statePanel)
+    }
+
   return(
-      <div id="hideShow" className="mainPanel">
-      <span onclick={panelToggle} className="movePanel">
+      <div id="hideShow" className={statePanel== true ? "mainPanel":"mainPanel-active"}>
+      <span onClick={panelToggle} className="movePanel">
       <p> >
       </p>
       </span>
@@ -17,7 +19,7 @@ function Panel(){
       </div>
       </div>
   )
-}
+ }
 
 
 export default Panel;
