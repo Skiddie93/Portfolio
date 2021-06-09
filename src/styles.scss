@@ -2,61 +2,72 @@
   position: relative;
   width: 25vw;
   height: 100vh;
-  background: green;
+  background: $panel-color;
   color: white;
-  padding:25px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   transition: transform ease 0.5s;
 }
+$panel-color: #0e182f;
 
-*{
+* {
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  font-family: "Noto Mono"
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Mono";
 }
 
 body {
-  background-color: red;
-
+  background-color: #3d4669;
 }
 
-
-
-.mainPanel{
+.mainPanel {
   @include panel-settings;
-transform: translateX(0%);
- }
- .mainPanel-active {
-   @include panel-settings;
-    transform: translateX(-100%);
-    }
+  transform: translateX(0%);
 
-
-.innerPanel{
-height: 90%;
-  width:100%;
-  background:green;
+  &.frajer {
+    transform: translateX(-101%);
+  }
 }
 
-.movePanel{
+.mainPanel-active {
+  @include panel-settings;
+  transform: translateX(-101%);
+}
+
+.innerPanel {
+  height: 90%;
+  width: 100%;
+}
+
+.movePanel {
   position: absolute;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  height: 75px;
-  width: 75px;
-  border-radius: 50px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
   font-size: 2rem;
-  right: 0px;
-  transform: translateX(45%);
-  background: green;
-  padding: 10px;
+  right: 0;
+  transform: translateX(49%);
+  background: lighten($panel-color, 4);
+  padding: 5px;
+  cursor: pointer;
 }
 
-.movePanel p{
-  color:red;
+.svgOpen {
+  color: white;
+  padding-left: 0;
+  transition: all ease 0.5s;
+  padding-left: 0;
+  transform: rotate(180deg);
+
+  &.close {
+    transform: rotate(0deg);
+    padding-left: 25px;
+  }
 }
