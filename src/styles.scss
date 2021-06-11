@@ -120,15 +120,29 @@ body {
   text-decoration: overline;
 }
 
+.skills{
+  display: inline;
+  text-align: center;
+  user-select: none;
+
+ & badge{
+  display: inline-block;
+  background:red;
+  margin: 10px;
+}
+}
 @media only screen and (max-height: 700px) {
   .meInfo {
     margin: 20px 0 0 0;
     & svg {
-      margin: 20px;
+      margin: 10px;
     }
     & h3 {
-      margin:20px;
+      margin:10px;
     }
+  }
+  .skills{
+    margin-top: 10px;
   }
 
  }
