@@ -1,5 +1,5 @@
 
-$panel-color: #161d2f;
+$panel-color: #34446c;
 
 * {
   box-sizing: border-box;
@@ -9,7 +9,7 @@ $panel-color: #161d2f;
 }
 
 body {
-  background-color: #3d4669;
+  background-color: #899AA5;
 }
 
 .mainPanel {
@@ -102,6 +102,11 @@ body {
   }
 }
 
+.meInfo a{
+  color: white;
+  text-decoration: none;
+}
+
 .innerPanel h1 {
   height: auto;
   width: 200px;
@@ -113,23 +118,34 @@ body {
 .innerPanel h2 {
   height: auto;
   width: 100%;
-  margin: 10px auto 10px auto;
+  margin: 5px auto 10px auto;
   text-align: center;
   font-size: 0,6rem;
   color: lighten($panel-color, 60 );
   text-decoration: overline;
+  text-decoration-color: #c14646;
+  text-decoration-thickness: 3px;
 }
 
 .skills{
   display: inline;
   text-align: center;
   user-select: none;
+  font-weight: bold;
 
  & badge{
   display: inline-block;
-  background:red;
-  margin: 10px;
+  background:#f2f2f2;
+  color: black;
+  border-left: 6px solid #c14646;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
 }
+}
+
+details{
+  pointer-events: none;
 }
 @media only screen and (max-height: 700px) {
   .meInfo {

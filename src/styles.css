@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #3d4669;
+  background-color: #899AA5;
 }
 
 .mainPanel {
@@ -14,7 +14,7 @@ body {
   width: 25vw;
   height: auto;
   min-height: 95vh;
-  background: #161d2f;
+  background: #34446c;
   color: white;
   padding: 2.5vh;
   display: flex;
@@ -46,7 +46,7 @@ body {
   right: 0;
   top: 50%;
   transform: translate(49%, -50%);
-  background: #1d263d;
+  background: #3b4d7a;
   padding: 0px;
   cursor: pointer;
 }
@@ -95,6 +95,11 @@ body {
   margin: 30px;
 }
 
+.meInfo a {
+  color: white;
+  text-decoration: none;
+}
+
 .innerPanel h1 {
   height: auto;
   width: 200px;
@@ -106,22 +111,33 @@ body {
 .innerPanel h2 {
   height: auto;
   width: 100%;
-  margin: 10px auto 10px auto;
+  margin: 5px auto 10px auto;
   text-align: center;
   font-size: 0, 6rem;
-  color: #a3b1d4;
+  color: #e1e6f1;
   text-decoration: overline;
+  text-decoration-color: #c14646;
+  text-decoration-thickness: 3px;
 }
 
 .skills {
   display: inline;
   text-align: center;
   user-select: none;
+  font-weight: bold;
 }
 .skills badge {
   display: inline-block;
-  background: red;
-  margin: 10px;
+  background: #f2f2f2;
+  color: black;
+  border-left: 6px solid #c14646;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+
+details {
+  pointer-events: none;
 }
 
 @media only screen and (max-height: 700px) {
