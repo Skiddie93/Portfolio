@@ -11,6 +11,7 @@ const panelToggle = () => {
     }
 
   return(
+    
       <div id="hideShow" className={`mainPanel ${statePanel ? "":"closeePanel"}`}>
       <div className="innerPanel">
         <div className="portrait">
@@ -39,7 +40,6 @@ const panelToggle = () => {
                    <badge>HTML</badge> <badge>CSS</badge> <badge>JavaScript</badge> <badge>PHP</badge> <badge>SQL</badge> <badge>React.js</badge>
                 </details>
               </div>
-
           </div>
       </div>
       <span onClick={panelToggle} className="movePanel">
