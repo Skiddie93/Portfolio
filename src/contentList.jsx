@@ -1,7 +1,9 @@
 import './styles.css';
 import codingplaceholder from './media/codingplaceholder.png';
-
+import React,{useState} from 'react'
 function ContentList(){
+
+
 
   return(
 

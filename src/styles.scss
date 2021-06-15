@@ -175,19 +175,29 @@ details {
     font-size:2rem;
     list-style-position: inside;
     cursor: pointer;
-    list-style-type:disc;
+    list-style-type:none;
     & li{
+
       margin: 10px;
       user-select: none;
+      text-decoration: underline;
+      &:before{
+        display: inline-block;
+        position: relative;
+        top: 50%;
+        content: "●";
+        font-size: 2rem;
+        visibility: hidden;
 
+
+      }
     }
   }
 }
 
-li:hover{
-    text-decoration: underline;
+ul li:hover:before {
+  visibility: visible;
 }
-
 
 @media only screen and (max-height: 700px) {
   .meInfo {
