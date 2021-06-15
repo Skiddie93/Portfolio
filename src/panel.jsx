@@ -11,7 +11,7 @@ const panelToggle = () => {
     }
 
   return(
-    
+
       <div id="hideShow" className={`mainPanel ${statePanel ? "":"closeePanel"}`}>
       <div className="innerPanel">
         <div className="portrait">

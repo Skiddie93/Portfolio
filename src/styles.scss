@@ -1,6 +1,7 @@
-
 $panel-color: #34446c;
 $panel-padding: 2.5vh;
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,21 +15,21 @@ body {
 
 .mainPanel {
   position: fixed;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 25vw;
   height: 100vh;
   background: $panel-color;
   color: white;
   padding: $panel-padding;
   transition: transform ease 0.5s;
+
   &.closeePanel {
     transform: translateX(-101%);
   }
 }
 
 .innerPanel {
-
   height: 100%;
   width: 100%;
   overflow: scroll;
@@ -45,7 +46,7 @@ body {
   border-radius: 50%;
   font-size: 2rem;
   top: 50vh;
-  right:0px;
+  right: 0;
   transform: translate(50%,-50%);
   background: lighten($panel-color, 4);
   cursor: pointer;
@@ -68,7 +69,7 @@ body {
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 20px;
 }
 
 .portrait img {
@@ -85,18 +86,16 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-
-
 }
 
-.meInfo a{
+.meInfo a {
   color: white;
   text-decoration: none;
   margin: 20px;
+
   & svg {
     height: 50px;
     width: 50px;
-
   }
 }
 
@@ -111,54 +110,96 @@ body {
 .innerPanel h2 {
   height: auto;
   width: 100%;
-  margin: 5px auto 10px auto;
+  margin: 5px auto 10px;
   text-align: center;
   font-size: 0,6rem;
-  color: lighten($panel-color, 60 );
+  color: lighten($panel-color, 60);
 }
 
-.innerPanel hr{
-border: 2px solid #c14646;
-border-radius: 5px;
+.innerPanel hr {
+  border: 2px solid #c14646;
+  border-radius: 5px;
 }
 
-.skills{
+.skills {
   display: inline;
   text-align: center;
   user-select: none;
   font-weight: bold;
 
- & badge{
-  display: inline-block;
-  background:#f2f2f2;
-  color: black;
-  border-left: 6px solid #c14646;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
-}
+  & badge {
+    display: inline-block;
+    background: #f2f2f2;
+    color: black;
+    border-left: 6px solid #c14646;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+  }
 }
 
-details{
+details {
   pointer-events: none;
 }
-@media only screen and (max-height: 700px) {
-  .meInfo {
-    margin: 20px 0 0 0;
+
+.contentContainer{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer{
+  width: 600px;
+  height: 600px;
+  background: blue;
+  margin-right: 10px;
+  & img{
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
   }
-  .meInfo a{
-  margin: 10px;
+}
+
+.listContainer{
+  width: 600px;
+  height: 600px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  & ul{
+    font-size:2rem;
+    list-style-position: inside;
+    cursor: pointer;
+    list-style-type:disc;
+    & li{
+      margin: 10px;
+      user-select: none;
 
     }
+  }
+}
+
+li:hover{
+    text-decoration: underline;
+}
 
 
+@media only screen and (max-height: 700px) {
+  .meInfo {
+    margin: 20px 0 0;
+  }
 
-
-
- }
-
+  .meInfo a {
+    margin: 10px;
+  }
+}
 @media only screen and (max-width: 1290px) {
-  .mainPanel{
+  .mainPanel {
     width: 35vw;
   }
- }
+}
