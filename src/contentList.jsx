@@ -1,9 +1,19 @@
 import './styles.css';
 import codingplaceholder from './media/codingplaceholder.png';
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 function ContentList(){
 
+  useEffect(()=>{
+    getData()
+  },[])
 
+  let [dataState, dataSet] = useState([])
+
+  async function getData(){
+    let get = await fetch('./projectData.json')
+    let response = await get.json()
+    dataSet(response)
+  }
 
   return(
 
@@ -13,11 +23,7 @@ function ContentList(){
   </div>
   <div className="listContainer">
     <ul>
-      <li>Homepage project</li>
-        <li>WebDev.fictional webpage</li>
-          <li>Z-Twin Primes</li>
-            <li>Ecomerce.fictional webpage</li>
-
+        {dataState.map(val => <li key={val.id}>{val.name}</li>)}
     </ul>
   </div>
 </div>
