@@ -202,7 +202,7 @@ ul li:hover:before {
   transform: translateX(-50%);
 }
 .projectDescription h1 {
-  position: absolute;
+  position: relative;
   display: block;
   width: 100%;
   text-align: center;
@@ -210,6 +210,12 @@ ul li:hover:before {
   font-size: 4rem;
   font-weight: bold;
 }
+.projectDescription img {
+  width: 100%;
+  margin-top: 30px;
+  object-fit: scale-down;
+}
+
 @media only screen and (max-height: 690px) {
   .meInfo {
     margin: 20px 0 0;

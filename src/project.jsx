@@ -22,13 +22,22 @@ function Project(props){
 
 
 
-
 let [descState, descSet] = useState("asdasd")
 
 
   return(
 
     <div className="projectDescription">
+      {props.data.map(val =>{
+        if(val.id == params){
+          return(
+              <React.Fragment>
+            <h1 key={val.id}>{val.name}</h1>
+            <img src={images["preview.jpg"].default}></img>
+            </React.Fragment>
+          )
+        }
+      })}
       {descState}
     </div>
   )
@@ -40,7 +49,7 @@ let [descState, descSet] = useState("asdasd")
 function homepage(){
   return(
     <div>
-    <h1>Homepage Project</h1>
+
 
       </div>
   )
