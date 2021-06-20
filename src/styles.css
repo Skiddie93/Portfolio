@@ -20,6 +20,7 @@ body {
   color: white;
   padding: 2.5vh;
   transition: transform ease 0.5s;
+  z-index: 10;
 }
 .mainPanel.closeePanel {
   transform: translateX(-101%);
@@ -192,6 +193,23 @@ ul li:hover:before {
   visibility: visible;
 }
 
+.projectDescription {
+  position: relative;
+  height: 100vh;
+  width: 65%;
+  background: green;
+  left: 50vw;
+  transform: translateX(-50%);
+}
+.projectDescription h1 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 4rem;
+  font-weight: bold;
+}
 @media only screen and (max-height: 690px) {
   .meInfo {
     margin: 20px 0 0;

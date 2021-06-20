@@ -2,28 +2,12 @@ import './styles.css';
 import codingplaceholder from './media/codingplaceholder.png';
 import React,{useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
-function ContentList(){
+import {importAll} from './functions.js'
+function ContentList(props){
 
-  useEffect(()=>{
-    getData()
-  },[])
-
-  let [dataState, dataSet] = useState([])
-    let [picState, picSet] = useState("codingplaceholder.png")
-
-  async function getData(){
-    let get = await fetch('./projectData.json')
-    let response = await get.json()
-    dataSet(response)
-  }
-
-  function importAll(r) {
-  let images = {};
-  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-  return images;
-}
-
-const images = importAll(require.context('./media', false, /\.(png|jpe?g|svg)$/));
+  const dataState = props.data
+  let [picState, picSet] = useState("codingplaceholder.png")
+  const images = importAll(require.context('./media', false, /\.(png|jpe?g|svg)$/));
 
   return(
 

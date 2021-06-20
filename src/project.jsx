@@ -1,36 +1,55 @@
 import './styles.css';
 import React,{useState, useEffect} from 'react'
-import ProjectDescription from './projectDes.jsx'
+import {importAll} from './functions.js'
 
 
 function Project(props){
+
+  const images = importAll(require.context('./media', false, /\.(png|jpe?g|svg)$/));
+  const params = props.match.params.id
   useEffect(()=>{
-    getData()
-
-
-
+    switch(params) {
+  case "1":
+    descSet(homepage())
+    break;
+  case "2":
+    descSet(webfictional())
+    break;
+  default:
+    descSet("not found")
+}
   },[])
 
-  let [itemState, itemSet] = useState([])
 
 
-async function getData(){
-  let data = await fetch('/projectData.json')
-  let response = await data.json()
-  itemSet(response)
-}
-  const id = props.match.params.id
+
+let [descState, descSet] = useState("asdasd")
+
 
   return(
-    <div>
-    {itemState.map(val => {
-      if(val.id == id){
-      return <h1 key={val.id}>{val.name}</h1> 
-    }
-    })}
-    <ProjectDescription id={id} />
-  </div>
 
-)
- }
-export default Project;
+    <div className="projectDescription">
+      {descState}
+    </div>
+  )
+}
+
+//______________________________________________________________________________________________________________
+
+
+function homepage(){
+  return(
+    <div>
+    <h1>Homepage Project</h1>
+
+      </div>
+  )
+}
+
+function webfictional(){
+  return(
+    <p>hihi</p>
+  )
+}
+
+export default Project
