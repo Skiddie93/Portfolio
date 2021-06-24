@@ -1,14 +1,13 @@
 import './styles.css';
-import codingplaceholder from './media/codingplaceholder.png';
 import React,{useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {importAll} from './functions.js'
+
 function ContentList(props){
 
   const dataState = props.data
   let [picState, picSet] = useState("codingplaceholder.png")
-  const images = importAll(require.context('./media', false, /\.(png|jpe?g|svg)$/));
-
+  const images = importAll(require.context('./media/previewPics', false, /\.(png|jpe?g|svg)$/));
   return(
 
 <div className="contentContainer">
