@@ -16,10 +16,11 @@ const panelToggle = () => {
       <div className="innerPanel">
         <div className="portrait">
           <img src={port}></img>
-            </div>
+          </div>
           <h1>Domen Petrovčič</h1>
           <hr></hr>
           <h2>Frontend Developer</h2>
+
           <div className="meInfo">
               <a target="_blank" href="https://www.google.com/">
                 <svg viewBox="0 0 24 24">
@@ -38,6 +39,7 @@ const panelToggle = () => {
                    <badge>HTML</badge> <badge>CSS</badge> <badge>JavaScript</badge> <badge>PHP</badge> <badge>SQL</badge> <badge>React.js</badge>
                 </details>
               </div>
+              <p>Email: domenp93@gmail.com</p>
           </div>
       </div>
       <span onClick={panelToggle} className="movePanel">

@@ -1,7 +1,6 @@
 $panel-color: #34446c;
 $panel-padding: 2.5vh;
 
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +10,8 @@ $panel-padding: 2.5vh;
 
 body {
   background-color: #5C6C8C;
+  width: 100vw;
+  height: 100vh;
 }
 
 .mainPanel {
@@ -24,6 +25,7 @@ body {
   padding: $panel-padding;
   transition: transform ease 0.5s;
   z-index: 10;
+
   &.closeePanel {
     transform: translateX(-101%);
   }
@@ -32,7 +34,11 @@ body {
 .innerPanel {
   height: 100%;
   width: 100%;
-  overflow: scroll;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .movePanel {
@@ -65,16 +71,20 @@ body {
   }
 }
 
+.mainContnet {
+  max-width: 350px;
+}
+
 .portrait {
-  height: 150px;
-  width: 150px;
+  height: 10rem;
+  width: 10rem;
   border-radius: 50%;
-  margin: 0 auto 20px;
+  margin: 0 auto 10%;
 }
 
 .portrait img {
-  height: 150px;
-  width: 150px;
+  height: 100%;
+  width: 100%;
   border-radius: 50%;
   object-fit: fill;
 }
@@ -86,37 +96,44 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-top: 10%;
+  & p{
+    font-size: 1.3rem;
+    text-align:center;
+    margin: 10% 0 0 0;
+  }
 }
 
 .meInfo a {
   color: white;
   text-decoration: none;
-  margin: 20px;
+  margin-bottom: 10%;
 
   & svg {
-    height: 50px;
-    width: 50px;
+    height: 4rem;
+    width: 4rem;
+
   }
 }
 
 .innerPanel h1 {
-  height: auto;
-  width: 200px;
-  margin: 0 auto;
   text-align: center;
   font-size: 2rem;
+
 }
 
 .innerPanel h2 {
   height: auto;
   width: 100%;
-  margin: 5px auto 10px;
+  margin: 5px auto 0;
   text-align: center;
-  font-size: 0,6rem;
+  font-size: 0,8rem;
   color: lighten($panel-color, 60);
 }
 
 .innerPanel hr {
+  width: 100%;
+  max-width: 400px;
   border: 2px solid #c14646;
   border-radius: 5px;
 }
@@ -126,6 +143,7 @@ body {
   text-align: center;
   user-select: none;
   font-weight: bold;
+  max-width: 350px;
 
   & badge {
     display: inline-block;
@@ -135,6 +153,7 @@ body {
     border-radius: 5px;
     margin: 5px;
     padding: 5px;
+
   }
 }
 
@@ -142,7 +161,7 @@ details {
   pointer-events: none;
 }
 
-.contentContainer{
+.contentContainer {
   height: 100vh;
   width: 100vw;
   padding: 5vh;
@@ -152,20 +171,19 @@ details {
   align-items: center;
 }
 
-.imageContainer{
+.imageContainer {
   width: 70%;
   height: 90%;
-
   margin-right: 10px;
-  & img{
+
+  & img {
     width: 100%;
     height: 100%;
     object-fit: scale-down;
-
   }
 }
 
-.listContainer{
+.listContainer {
   width: 600px;
   height: 600px;
   margin-left: 10px;
@@ -173,25 +191,25 @@ details {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  & ul{
-    font-size:2.5rem;
+
+  & ul {
+    font-size: 2.5rem;
     list-style-position: inside;
     cursor: pointer;
-    list-style-type:none;
-    & li{
+    list-style-type: none;
 
+    & li {
       margin: 10px;
       user-select: none;
       text-decoration: underline;
-      &:before{
+
+      &:before {
         display: inline-block;
         position: relative;
         top: 50%;
         content: "●";
         font-size: 2rem;
         visibility: hidden;
-
-
       }
     }
   }
@@ -201,15 +219,15 @@ ul li:hover:before {
   visibility: visible;
 }
 
-.projectDescription{
+.projectDescription {
   position: relative;
   height: auto;
-  width:  75%;
+  width: 75%;
   left: 50vw;
   transform: translateX(-50%);
-  padding: 0 5% 5% 5%;
-
-  & h1{
+  padding: 0 5% 5%;
+  overflow: auto;
+  & h1 {
     position: relative;
     display: block;
     width: 100%;
@@ -220,23 +238,25 @@ ul li:hover:before {
     color: #2d2d2d;
     text-decoration: underline;
   }
-  & img{
-    width: 100%;
-    margin:30px 0 30px 0;
-    object-fit: scale-down;
 
+  & img {
+    width: 100%;
+    margin: 30px 0;
+    object-fit: scale-down;
   }
 }
 
-.description{
-  padding:0 5% 0 5%;
-  & p{
-    font-size: 1.2rem
+.description {
+  padding: 0 5%;
+
+  & p {
+    font-size: 1.2rem;
   }
-  & code{
+
+  & code {
     width: 100%;
-    display:block;
-    background:#2d2d2d;
+    display: block;
+    background: #2d2d2d;
     color: white;
     padding: 10px;
     border-radius: 10px;
@@ -244,30 +264,31 @@ ul li:hover:before {
     white-space: pre-wrap;
   }
 }
-
-@media only screen and (max-height: 690px) {
-  .meInfo {
-    margin: 20px 0 0;
-  }
-
-  .meInfo a {
-    margin: 10px;
-  }
-
-
-}
 @media only screen and (max-width: 1290px) {
   .mainPanel {
     width: 35vw;
   }
 }
-
-@media only screen and (max-width: 1024px){
-  .listContainer ul{
+@media only screen and (max-width: 1024px) {
+  .listContainer ul {
     font-size: 1.3rem;
-    & li{
-      margin:5px;
+
+    & li {
+      margin: 5px;
     }
   }
-
 }
+
+@media only screen and (max-height: 715px) {
+  .meInfo a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 5%;
+
+    & svg {
+      height: 3rem;
+      width: 3rem;
+
+    }
+  }
+   }
