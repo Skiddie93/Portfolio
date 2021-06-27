@@ -12,8 +12,8 @@ function Project(props){
   case "1":
     descSet(homepage())
     break;
-  case "2":
-    descSet(webfictional())
+  case "5":
+    descSet(flowerwatch())
     break;
   default:
     descSet("not found")
@@ -101,9 +101,44 @@ let txtNode = document.createTextNode(txtVal);
   )
 }
 
-function webfictional(){
+function flowerwatch(){
   return(
-    <p>hihi</p>
+    <div className="description">
+    <p>
+      <h2>Overview</h2>
+      This is a python application which runs in the terminal and was written with the python curses library.
+      The application was made for keeping track of plant watering cycle and allows you to add and remove items
+      and reseting the counter on each item.
+      <h2>How it works</h2>
+      Python curses treats the terminal as a window and renders items individualy or in bulk inside an array based
+      on a given calculation for example:
+      <code>{`
+y = h//2 + ind - len(allplants)//2
+x = w//2 - len(ime)//2
+    `}</code>
+  Here we can see the calculation for centering an array of items where "h" and "w" stand for the viewports
+  height and width "len(allplants)" for the length of an item and "ind" is the index of the current item
+  being randered.
+  <br></br>
+  <br></br>
+  You navigate by listening to key presses and keeping track of a specific row and column you are currently on
+  and styling your current position differently than everything else.
+  <img src={require('./media/flowerwatch/newplant.png').default}></img>
+  How many days have passed since the last time you watered the plant gets calculated every time you render the window
+  with a "function" set inside the plants class
+  <code>{`
+def diff (self):
+     if self.watered == "Null":
+         self.watered = date.today()
+
+      tdy = date.today()
+      self.days = tdy - self.watered
+      return self.days
+`}</code>
+
+
+      </p>
+    </div>
   )
 }
 
