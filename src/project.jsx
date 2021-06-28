@@ -15,6 +15,15 @@ function Project(props){
   case "5":
     descSet(flowerwatch())
     break;
+  case "2":
+    descSet(webfictional())
+    break;
+  case "3":
+    descSet(ztwinprimes())
+    break
+  case "4":
+    descSet(ecomercefictional())
+    break;
   default:
     descSet("not found")
 }
@@ -135,11 +144,48 @@ def diff (self):
       self.days = tdy - self.watered
       return self.days
 `}</code>
-
+<h2>Features</h2>
+The add feature lets you add a new plant to the list. the only thing you have to do is choose the "add" option and
+name the plant.
+<img src={require('./media/flowerwatch/nameplant.png').default}></img>
+After adding a plant you can choose it from the list and open two more options which are the "water" option,
+and delete option. The watered option will reset the days counter to 0 and the delete option will remove the plant
+from the list
+<img src={require('./media/flowerwatch/plantoptions.png').default}></img>
 
       </p>
     </div>
   )
 }
+
+function webfictional(){
+  return(
+    <div className="description">
+    <p>
+      <h2>Overview</h2>
+      This is a mock site for a bussines that doesn't exist. it consist of a landing page,
+      info section about the bussines, summary of some projects, a page with all projects and a dedicated page for each project.
+      It also has an "about us page" and a "contact" page.
+      </p>
+    </div>
+  )}
+
+function ztwinprimes(){
+  return(
+    <div className="description">
+    <p>
+      <h2>Overview</h2>
+      </p>
+    </div>
+  )}
+
+function ecomercefictional(){
+  return(
+    <div className="description">
+    <p>
+      <h2>Overview</h2>
+      </p>
+    </div>
+  )}
 
 export default Project
