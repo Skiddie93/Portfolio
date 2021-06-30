@@ -1,12 +1,14 @@
 import './styles.css';
 import React,{useState, useEffect} from 'react'
 import {importAll} from './functions.js'
+import {LightenDarkenColor} from './functions.js'
 
 
 function Project(props){
 
   const images = importAll(require.context('./media/previewPics', false, /\.(png|jpe?g|svg)$/));
   const params = props.match.params.id
+
   useEffect(()=>{
     switch(params) {
   case "1":
@@ -25,7 +27,7 @@ function Project(props){
     descSet(ecomercefictional())
     break;
   default:
-    descSet("not found")
+    descSet(homepage())
 }
   },[])
 
@@ -36,19 +38,23 @@ let [descState, descSet] = useState("asdasd")
 
   return(
 
-    <div className="projectDescription">
+    <React.Fragment>
       {props.data.map(val =>{
         if(val.id == params){
           return(
-              <React.Fragment>
+            <div style={{backgroundColor: LightenDarkenColor(val.bgColor,70) }} className="backgroundDescription">
+            <div style={{backgroundColor: val.bgColor }} className="projectDescription">
             <h1 key={val.id}>{val.name}</h1>
-            <img src={images[val.previewpic].default}></img>
-            </React.Fragment>
+            <img key={val.id+"img"} src={images[val.previewpic].default}></img>
+              {descState}
+            </div>
+            </div>
           )
         }
-      })}
-      {descState}
-    </div>
+
+      }
+    )}
+  </React.Fragment>
   )
 }
 
@@ -58,7 +64,7 @@ let [descState, descSet] = useState("asdasd")
 function homepage(){
   return(
     <div className="description">
-    <p>
+    <article>
       <h2>Overview</h2>
       A homepage is a jumping-off point for web browsing. It utilises a menu-like design that allows quick acces to websites of your
       choice and compartmentalization.
@@ -105,7 +111,7 @@ let txtNode = document.createTextNode(txtVal);
      <code>{`
  .dropdown:hover .dropbtn {background: linear-gradient(to right, #1C272C 50%, #ffff 50%);
    `}</code>
-    </p>
+    </article>
       </div>
   )
 }
@@ -113,7 +119,7 @@ let txtNode = document.createTextNode(txtVal);
 function flowerwatch(){
   return(
     <div className="description">
-    <p>
+    <article>
       <h2>Overview</h2>
       This is a python application which runs in the terminal and was written with the python curses library.
       The application was made for keeping track of plant watering cycle and allows you to add and remove items
@@ -153,7 +159,7 @@ and delete option. The watered option will reset the days counter to 0 and the d
 from the list
 <img src={require('./media/flowerwatch/plantoptions.png').default}></img>
 
-      </p>
+</article>
     </div>
   )
 }

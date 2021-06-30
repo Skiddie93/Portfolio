@@ -2,22 +2,26 @@
    {
       "id":1,
       "name":"Homepage Project",
-      "previewpic": "homepage.png"
+      "previewpic": "homepage.png",
+      "bgColor": "#4C6C6E"
    },
    {
      "id":5,
      "name":"Flowerwatch",
-      "previewpic": "flowerwatch.png"
+    "previewpic": "flowerwatch.png",
+    "bgColor": "#4F8C6F"
    },
    {
       "id":2,
       "name":"Web.fictional",
-      "previewpic": "webfictional.png"
+      "previewpic": "webfictional.png",
+      "bgColor": "#C4D8F2"
    },
    {
       "id":3,
       "name":"Z-Twin Primes",
-      "previewpic": "preview.jpg"
+      "previewpic": "ztwinprimes.png",
+      "bgColor": "#4f4f4f"
    },
    {
      "id":4,
