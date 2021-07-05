@@ -42,8 +42,8 @@ let [descState, descSet] = useState("asdasd")
       {props.data.map(val =>{
         if(val.id == params){
           return(
-            <div style={{backgroundColor: LightenDarkenColor(val.bgColor,70) }} className="backgroundDescription">
-            <div style={{backgroundColor: val.bgColor }} className="projectDescription">
+            <div  key={val.id+"bg"} style={{backgroundColor: LightenDarkenColor(val.bgColor,70) }} className="backgroundDescription">
+            <div key={val.id+"desc"} style={{backgroundColor: val.bgColor }} className="projectDescription">
             <h1 key={val.id}>{val.name}</h1>
             <img key={val.id+"img"} src={images[val.previewpic].default}></img>
               {descState}
@@ -152,10 +152,10 @@ def diff (self):
 `}</code>
 <h2>Features</h2>
 The add feature lets you add a new plant to the list. the only thing you have to do is choose the "add" option and
-name the plant.
+name the plant. The plant will than be added to the list.
 <img src={require('./media/flowerwatch/nameplant.png').default}></img>
 After adding a plant you can choose it from the list and open two more options which are the "water" option,
-and delete option. The watered option will reset the days counter to 0 and the delete option will remove the plant
+and delete option. The water option will reset the days counter to 0 and the delete option will remove the plant
 from the list
 <img src={require('./media/flowerwatch/plantoptions.png').default}></img>
 
@@ -167,12 +167,110 @@ from the list
 function webfictional(){
   return(
     <div className="description">
-    <p>
+    <article>
       <h2>Overview</h2>
       This is a mock site for a bussines that doesn't exist. it consist of a landing page,
       info section about the bussines, summary of some projects, a page with all projects and a dedicated page for each project.
       It also has an "about us page" and a "contact" page.
-      </p>
+      <h2>Sections</h2>
+      The first section that we see is the landing section where the "contact us!" button makes an entrance width
+      a letter by letter animation.
+      <code>{`
+function landingAnimation() {
+    setTimeout(function() {
+      if (i < 8) {
+         document.getElementById("ani1").innerHTML+= res[i]
+      }else if (i > 18) {
+        document.getElementById("ani3").innerHTML+= res[i]
+      }else {
+        document.getElementById("ani2").innerHTML+= res[i]
+      }
+      i++;
+
+      if (i <res.length) {
+        landingAnimation();
+      }
+    }, 100)
+    `}</code>
+  A recursive functions calls itself with a delay of a tenth of a second and displays a new character
+  on every call.
+  <br></br>
+  The landing page also has a 100vh scroll-down feature where a single scroll gets you exactly a full viewport height
+  lower onto a new screen. This was achieved by checking the distance from the top of the document along with the scroll
+  direction.
+  <code>{`
+function change(){
+  let a =  document.scrollingElement.scrollTop;
+  let h = window.innerHeight;
+  scrollDir()
+
+  if (updown==0) {
+    if (a<h) {
+    window.scrollTo(0,h)
+  }else if (a>=h) {
+    window.scrollTo(0,h*2)
+    }
+  }else if (updown==1) {
+    if (a>h ) {
+      window.scrollTo(0,h)
+    }else if (a<=h) {
+      window.scrollTo(0,0)
+    }}}
+
+`}</code>
+<br></br>
+<br></br>
+On the Projects page we can see a carousel for every project. The carousel gives the illusion as if it is looping
+around but the trick is that the first and the last image are the same. When you reach the end the line of pictures
+gets reset back at the beggining.
+<img src={require('./media/webfictional/carousel.png').default}></img>
+Each carousel uses the same code since the event listeners are bound to an event from a specific div.
+The event listeners are delt by a for-loop of an array of items with the class name nextbutton (or previousbutton).
+<br></br>
+<br></br>
+A very similar principle was applyed to the overlay on the porject specific page. The main difference was targeting the exact picture
+that was clicked. This is handled by simply checking if the clicked target was an image and than taking the outer html of the correct element
+and applying it to inner html of the desired div. this would look somethink like this.
+<code>{`
+  gallery.addEventListener('click', function(e){
+
+  if (e.target.nodeName == "IMG") {
+      eventNode = e.target.parentNode
+      displayItem.innerHTML = e.target.outerHTML
+      overlay.classList.toggle("previewOverlay-active");
+    }
+
+`}</code>
+The overlay would look something like this.
+<img src={require('./media/webfictional/overlay.png').default}></img>
+My favorite feature of this site is the about us dispay which consist of a text and a image section. Underneath, there are dots
+which act as content switchers. each dot will show its own content in the image and text section. the comentent is seamlessly changed
+when it slides outside its own div and pops out with the new content. The page looks like this.
+<img src={require('./media/webfictional/about.png').default}></img>
+There is really nothing special happening here. The content just gets rotet by a switch statement accourdin to the child id of the dots div.
+The hardest part of the whole thing was handling the resize responsiveness since the whole orientation has to change without refreshing
+the windows happens to change bellow a certain point
+<code>{`
+
+  function listenResize(){
+    if (window.innerWidth<812 && state==true ) {
+      state = false
+      translateFirst= "translateY(110%)"
+      translateSecond="translateY(-110%)"
+      translateThird="translateY(0%)"
+    }else if(window.innerWidth>812 && state==false ){
+
+        state = true
+        translateFirst= "translateX(110%)"
+        translateSecond="translateX(-110%)"
+        translateThird="translateX(0%)"
+    }
+  }
+
+`}</code>
+  There is also a function which sets the state to true or false accroding to windows width, so that the if statement only runs once when its
+  changed.
+    </article>
     </div>
   )}
 

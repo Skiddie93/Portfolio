@@ -10,6 +10,7 @@ function ContentList(props){
   let [picState, picSet] = useState("codingplaceholder.png")
   const images = importAll(require.context('./media/previewPics', false, /\.(png|jpe?g|svg)$/));
   return(
+
 <div style={{backgroundColor: bgState }} className="contentContainer">
   <div className="imageContainer">
     <img src={images[picState].default}></img>
